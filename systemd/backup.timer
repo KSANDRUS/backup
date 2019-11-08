@@ -1,5 +1,5 @@
 [Unit]
-Description=Run Duplicity backup weekly at 12:30 AM on Monday
+Description=Run backup routine weekly at 12:30 AM on Monday
 
 [Timer]
 OnCalendar=Mon 00:30

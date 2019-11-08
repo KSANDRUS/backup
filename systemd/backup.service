@@ -1,5 +1,5 @@
 [Unit]
-Description=Run Duplicity backup routine
+Description=Run backup routine
 After=network.target
 Requires=network.target
 

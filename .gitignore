@@ -1,4 +1,4 @@
-duplicity_archive_cache
-duplicacy-repo-*
+repo-*
+!repo-*/.duplicacy/filters
 secrets
 info

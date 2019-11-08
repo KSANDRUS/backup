@@ -10,9 +10,6 @@
 set -e
 cd "$(dirname "$0")"
 
-export GOOGLE_DRIVE_SETTINGS="$PWD/secrets/pydrive.conf"
-export PASSPHRASE="$(cat secrets/enc_password.txt)"
-
 # Prints an error in bold red
 function err() {
     echo
@@ -48,39 +45,26 @@ date > info/date
 apt-mark showmanual > info/apt_pkgs.list
 
 
-##############
-# VPS BACKUP #
-##############
+################
+# PHONE BACKUP #
+################
 
 hdr "Performing VPS backup..."
 
-dup_args=(
-    # Do a full backup if chain is longer than 1 month or doesn't exist,
-    # otherwise do an incremental backup
-    --full-if-older-than 2M
-
-    # Localize archive cache/datbase directory
-    --archive-dir "$PWD/duplicity_archive_cache"
-
-    # Upload while preparing the next volume for speed
-    --asynchronous-upload
-
-    # List of files and directories to back up
-    --include-filelist dup_glob_vps.list
-
-    # Glob list expects to be from /
-    /
-
-    # Target: "d001" folder on Google Drive
-    pydrive+gdocs://developer.gserviceaccount.com/d003/
-)
+pushd repo-vps > /dev/null
 
 # TODO: log & email
-duplicity "${dup_args[@]}"
+duplicacy backup -stats
 
 msg "Pruning old VPS backups..."
-# Prune backups older than 3 months
-duplicity remove-older-than 3M --force pydrive+gdocs://developer.gserviceaccount.com/d00e/
+# Prune backups:
+#   - Keep no snapshots older than 360 days
+#   - Keep 1 snapshot every 30 day(s) if older than 180 day(s)
+#   - Keep 1 snapshot every 7 day(s) if older than 30 day(s)
+#   - Keep 1 snapshot every 1 day(s) if older than 7 day(s)
+duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+
+popd > /dev/null
 
 
 ############

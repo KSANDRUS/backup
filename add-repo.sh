@@ -37,7 +37,7 @@ function usage() {
 [[ -z "$2" ]] && usage
 
 repo_name="$1"
-repo_dir="duplicacy-repo-$1"
+repo_dir="repo-$1"
 tgt_path="$2"
 mkdir "$repo_dir" || die "Duplicacy repository '$repo_name' already exists!"
 
