@@ -14,8 +14,7 @@ function die() {
     err "$@"
     builtin exit 1
 }
-getpcaps $BASHPID
-exit
+
 cd "$(dirname "$0")"
 hostname="$(hostname)"
 
