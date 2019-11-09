@@ -1,0 +1,14 @@
+# Include Android device backups
++p2_sdcard/*
++lanserv/*
+
+# Include photos
++banff/*
++archive/win_user/Pictures/SnowTripPhotos2015/*
++archive/win_user/Pictures/icloudHighlights/*
++archive/win_user/Pictures/
++archive/win_user/
++archive/
+
+# Exclude everything else
+-* 

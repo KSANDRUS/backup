@@ -39,6 +39,7 @@ function usage() {
 repo_name="$1"
 repo_dir="repo-$1"
 tgt_path="$2"
+filter_list="../filters/$repo_name.list"
 mkdir "$repo_dir" || die "Duplicacy repository '$repo_name' already exists!"
 
 password="$(cat ../secrets/enc_password.txt)"
@@ -50,6 +51,10 @@ DUPLICITY_GCD_TOKEN="../secrets/gcd-token.json" DUPLICITY_PASSWORD="$password" d
 msg "Saving storage credentials..."
 duplicacy set -key gcd_token -value "../secrets/gcd-token.json" || die "Error saving Google Drive token file path"
 duplicacy set -key password -value "$password" || doe "Error saving encryption password"
+
+msg "Linking filter list..."
+touch "$filter_list"
+ln "$filter_list" .duplicacy/filters
 
 popd > /dev/null
 

@@ -1,0 +1,38 @@
+# Exclude from home
+-home/dragon/.cache/*
+-home/dragon/.wine/*
+-home/dragon/.wine32/*
+-home/dragon/.nv/*
+-home/dragon/toolchains/aosp-clang/.git/*
+-home/dragon/.local/share/Steam/*
+-home/dragon/.local/share/lutris/*
+-home/dragon/.local/share/TelegramDesktop/tdata/user_data/*cache/*
+-home/dragon/go/src/*
+-home/dragon/.rustup/*
+-home/dragon/.tor-browser/*
+-home/dragon/.cargo/git/*
+
+# Exclude Chromium caches (mostly from Electron apps)
+-*/Cache/*
+-*/GPUCache/*
+-*/CachedData/*
+
+# Include backup information
++home/dragon/backup/info/*
+
+# Include the rest of home
++home/dragon/*
++home/
+
+# Include some system configuration
++boot/loader/*
++boot/EFI/*
++boot/shellx64.efi
++boot/
++etc/*
+
+# Include chatbot data
++storage/fsdata/chat/*
+
+# Exclude everything else
+-* 
