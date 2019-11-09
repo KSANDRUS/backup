@@ -42,7 +42,7 @@ tgt_path="$2"
 filter_list="../filters/$repo_name.list"
 mkdir "$repo_dir" || die "Duplicacy repository '$repo_name' already exists!"
 
-password="$(cat ../secrets/enc_password.txt)"
+password="$(cat secrets/enc_password.txt)"
 pushd "$repo_dir" > /dev/null
 
 msg "Initializing repository..."
