@@ -13,6 +13,25 @@
 # Include system configuration and server files
 +etc/*
 +srv/*
- 
+
+# Include databases
++var/lib/mysql/*
++var/lib/influxdb/*
++var/lib/sshguard/*
+
+# Include website and WebDAV share
+# Exclude extracted Android firmware images
+-var/www/main/files/android/firmware/zenfone6/*
++var/www/*
++var/
+
+# Include custom scripts
++usr/local/bin/update-*
++usr/local/bin/wgv-*
++usr/local/bin/launch-*
++usr/local/bin/
++usr/local/
++usr/
+
 # Exclude everything else
 -*
