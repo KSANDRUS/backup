@@ -5,7 +5,7 @@ set -e
 # Prints an error in bold red
 function err() {
     echo
-    echo "\e[1;31m$@\e[0m"
+    echo -e "\e[1;31m$@\e[0m"
     echo
 }
 
