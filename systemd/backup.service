@@ -8,3 +8,5 @@ Type=oneshot
 Restart=no
 WorkingDirectory=/home/dragon/backup
 ExecStart=/home/dragon/backup/backup.sh
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH
+AmbientCapabilities=CAP_DAC_READ_SEARCH
