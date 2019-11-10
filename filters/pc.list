@@ -29,10 +29,8 @@
 +boot/EFI/*
 +boot/shellx64.efi
 +boot/
+-etc/ld.so.cache
 +etc/*
-
-# Include chatbot data
-+storage/fsdata/chat/*
 
 # Exclude everything else
 -* 
