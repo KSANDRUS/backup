@@ -6,6 +6,8 @@ Requires=network.target
 [Service]
 Type=oneshot
 Restart=no
+User=dragon
+Group=dragon
 WorkingDirectory=/home/dragon/backup
 ExecStart=/home/dragon/backup/backup.sh
 CapabilityBoundingSet=CAP_DAC_READ_SEARCH
