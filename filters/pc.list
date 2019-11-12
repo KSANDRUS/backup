@@ -17,6 +17,9 @@
 -*/GPUCache/*
 -*/CachedData/*
 
+# Exclude Gradle build folders
+-home/dragon/code/java/*/build/*
+
 # Include backup information
 +home/dragon/backup/info/*
 
