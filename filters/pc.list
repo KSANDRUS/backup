@@ -37,5 +37,11 @@
 -etc/ld.so.cache
 +etc/*
 
+# Include Pacman database
++var/lib/pacman/local/*
++var/lib/pacman/
++var/lib/
++var/
+
 # Exclude everything else
 -* 
