@@ -8,7 +8,6 @@
 -home/dragon/.local/share/lutris/*
 -home/dragon/.local/share/TelegramDesktop/tdata/user_data/*cache/*
 -home/dragon/go/src/*
--home/dragon/.rustup/*
 -home/dragon/.tor-browser/*
 -home/dragon/.cargo/git/*
 
@@ -19,6 +18,9 @@
 
 # Exclude Gradle build folders
 -home/dragon/code/java/*/build/*
+
+# Exclude VM disks
+-home/dragon/vm_disks/*
 
 # Include backup information
 +home/dragon/backup/info/*
