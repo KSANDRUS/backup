@@ -36,6 +36,15 @@ function hdr() {
     echo
 }
 
+# Polyfill ionice
+if ! type ionice > /dev/null; then
+    function ionice() {
+        shift
+        shift
+        "$@"
+    }
+fi
+
 hdr "Preparing to backup..."
 
 # Populate backup information
@@ -56,7 +65,7 @@ hdr "Performing phone backup..."
 pushd repo-phone > /dev/null
 
 # TODO: log & email
-duplicacy backup -stats
+ionice -c 3 duplicacy backup -stats
 
 msg "Pruning old phone backups..."
 # Prune backups:
@@ -64,7 +73,7 @@ msg "Pruning old phone backups..."
 #   - Keep 1 snapshot every 30 day(s) if older than 180 day(s)
 #   - Keep 1 snapshot every 7 day(s) if older than 30 day(s)
 #   - Keep 1 snapshot every 1 day(s) if older than 7 day(s)
-duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+ionice -c 3 duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 
 popd > /dev/null
 
@@ -78,7 +87,7 @@ hdr "Performing PC backup..."
 pushd repo-pc > /dev/null
 
 # TODO: log & email
-duplicacy backup -stats
+ionice -c 3 duplicacy backup -stats
 
 msg "Pruning old PC backups..."
 # Prune backups:
@@ -86,7 +95,7 @@ msg "Pruning old PC backups..."
 #   - Keep 1 snapshot every 30 day(s) if older than 180 day(s)
 #   - Keep 1 snapshot every 7 day(s) if older than 30 day(s)
 #   - Keep 1 snapshot every 1 day(s) if older than 7 day(s)
-duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
+ionice -c 3 duplicacy prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7
 
 popd > /dev/null
 
