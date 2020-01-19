@@ -10,5 +10,8 @@
 +archive/win_user/
 +archive/
 
+# Include data exports
++exports/*
+
 # Exclude everything else
 -* 
