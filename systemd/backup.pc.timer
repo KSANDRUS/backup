@@ -1,8 +1,8 @@
 [Unit]
-Description=Run backup routine weekly at 12:30 AM on Monday
+Description=Run backup routine daily at 12:30 AM
 
 [Timer]
-OnCalendar=Mon 00:30
+OnCalendar=00:30
 Persistent=true
 
 [Install]
