@@ -52,6 +52,7 @@ rm -fr info
 mkdir info
 date > info/date
 apt-mark showmanual > info/apt_pkgs.list
+sudo -u postgres pg_dumpall > info/pg_databases.sql
 
 
 ################
