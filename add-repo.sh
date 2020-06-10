@@ -46,7 +46,7 @@ password="$(cat secrets/enc_password.txt)"
 pushd "$repo_dir" > /dev/null
 
 msg "Initializing repository..."
-DUPLICITY_GCD_TOKEN="../secrets/gcd-token.json" DUPLICITY_PASSWORD="$password" duplicacy init -e -repository "$tgt_path" "$repo_name" gcd://d001 || die "Error initializing repository"
+duplicacy init -e -repository "$tgt_path" "$repo_name" gcd://d001 || die "Error initializing repository"
 
 msg "Saving storage credentials..."
 duplicacy set -key gcd_token -value "../secrets/gcd-token.json" || die "Error saving Google Drive token file path"
