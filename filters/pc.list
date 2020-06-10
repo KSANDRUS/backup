@@ -1,15 +1,10 @@
 # Exclude from home
 -home/dragon/.cache/*
--home/dragon/.wine/*
--home/dragon/.wine32/*
 -home/dragon/.nv/*
--home/dragon/toolchains/aosp-clang/.git/*
 -home/dragon/.local/share/Steam/*
 -home/dragon/.local/share/lutris/*
 -home/dragon/.local/share/TelegramDesktop/tdata/user_data/*cache/*
--home/dragon/go/src/*
 -home/dragon/.tor-browser/*
--home/dragon/.cargo/git/*
 
 # Exclude Chromium caches (mostly from Electron apps)
 -*/Cache/*
@@ -18,9 +13,6 @@
 
 # Exclude Gradle build folders
 -home/dragon/code/java/*/build/*
-
-# Exclude VM disks
--home/dragon/vm_disks/*
 
 # Include backup information
 +home/dragon/backup/info/*
@@ -37,14 +29,14 @@
 -etc/ld.so.cache
 +etc/*
 
+# Include libvirt state
++var/lib/libvirt/*
+
 # Include Pacman database
 +var/lib/pacman/local/*
 +var/lib/pacman/
 +var/lib/
 +var/
-
-# Include libvirt state
-+var/lib/libvirt/*
 
 # Exclude everything else
 -* 
