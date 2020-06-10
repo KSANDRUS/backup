@@ -54,7 +54,7 @@ duplicacy set -key password -value "$password" || doe "Error saving encryption p
 
 msg "Linking filter list..."
 touch "$filter_list"
-ln "$filter_list" .duplicacy/filters
+ln -s "../$filter_list" .duplicacy/filters
 
 popd > /dev/null
 
