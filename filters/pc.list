@@ -14,6 +14,10 @@
 # Exclude Gradle build folders
 -home/dragon/code/java/*/build/*
 
+# Exclude ROM build artifactss
+-home/dragon/code/android/aosp/out/*
+-home/dragon/code/android/los/*
+
 # Include backup information
 +home/dragon/backup/info/*
 
